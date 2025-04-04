@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - BookShop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles-orderconfirmed.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Order Confirmed</h1>
+    </header>
+    <div class="cart-container">
+        h1>Payment Successful!</h1>
+        <h2>Your Order is Confirmed!</h2>
+        <p>Sale ID: {{ bill.sale_id }}</p>
+        <p>Date: {{ bill.date }}</p>
+        <p>Payment Method: {{ bill.payment_method | capitalize }}</p>
+        <table class="cart-table">
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+            {% for item in bill["items"] %}
+                <tr>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.isbn }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹{{ item.price }}</td>
+                    <td>₹{{ item.subtotal }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <p class="cart-summary">Total: ₹{{ bill.total }}</p>
+    </div>
+    <p>Thank you for your purchase. Redirecting to home in <span id="countdown">20</span> seconds...</p>
+    <p><a href="{{ url_for('home') }}">Go to Home Now</a></p>
+    <script>
+        let timeLeft = 20;
+        const countdown = document.getElementById('countdown');
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdown.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = "{{ url_for('home') }}";
+            }
+        }, 1000);
+    </script>
+    <footer>BookShop © 2025</footer>
+</body>
+</html>

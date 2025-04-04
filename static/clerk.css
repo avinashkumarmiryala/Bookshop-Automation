@@ -1,0 +1,114 @@
+/* General styling */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+    background-color: #84CCEB;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container for layout */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #1111cd;
+    margin-bottom: 20px;
+}
+
+/* Section styling */
+.section {
+    background-color: #e4e1d0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Section header */
+h2 {
+    color: #da5716;
+    margin-bottom: 10px;
+}
+
+/* Button styling */
+button {
+    background-color: #ecc3e9fc;
+    color: black;
+    padding: 10px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Constantia";
+}
+
+button:hover {
+    background-color:rgb(214, 60, 209);
+}
+
+/* Input fields */
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+/* Container for each request */
+.request-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.request-item:hover {
+    transform: translateY(-3px);
+}
+
+/* Bold and colored labels */
+.request-item p strong {
+    color: #333;
+}
+
+/* Adding some spacing and font styling */
+.request-item p {
+    margin: 4px 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+
+.request-item hr {
+    border: none; /* Remove default border */
+    height: 2px; /* Thickness of the line */
+    background-color: pink; /* Pink color */
+    margin: 10px 0; /* Space above and below the line */
+}
+
+
+

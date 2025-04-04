@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Preview - BookShop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles-generatebill.css') }}">
+    <script defer src="{{ url_for('static', filename='generate_bill.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Your Bill Preview</h1>
+    </header>
+    <div class="cart-container">
+        <h2>Transaction Preview</h2>
+        {% if bill and bill.status == "success" %}
+            <p>Date: {{ bill.date|default('Today') }}</p>
+            <table class="cart-table">
+                <tr>
+                    <th>Title</th>
+                    <th>ISBN</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+                {% for item in bill["items"] %}  <!-- Fixed syntax -->
+                    <tr>
+                        <td>{{ item.title|default('N/A') }}</td>
+                        <td>{{ item.isbn }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>₹{{ item.price|default('N/A') }}</td>
+                        <td>₹{{ item.subtotal }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <p class="cart-summary">Total: ₹{{ bill.total }}</p>
+            <a href="{{ url_for('proceed_to_pay') }}" class="btn">Proceed to Pay</a>
+            <a href="{{ url_for('home') }}" class="btn">Cancel Transaction</a>
+        {% else %}
+            <p class="cart-empty">{{ bill.message|default('No bill generated.') }}</p>
+            <a href="{{ url_for('home') }}" class="btn">Back to Shopping</a>
+        {% endif %}
+    </div>
+    <footer>BookShop © 2025</footer>
+</body>
+</html>

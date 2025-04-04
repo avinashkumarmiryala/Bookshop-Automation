@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='cartstyles.css') }}">-->
+    <script defer src="{{ url_for('static', filename='cart.js') }}"></script>
+
+</head>
+<body>
+    <script>
+        // Redirect users to homepage since cart is now a sidebar
+        window.location.href = "/";
+        document.getElementById("generate-bill-btn").addEventListener("click",function(){
+            window.location.href="generate_bill.html";
+        });
+        
+    </script>
+</body>
+</html>

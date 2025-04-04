@@ -1,0 +1,187 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #D1E8E2; /* Matching body background */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: #84CCEB; /* Matching header color */
+    color: #333;
+    text-align: center;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+/* Main container styles */
+.cart-container {
+    max-width: 900px; /* Matching original width */
+    margin: 2rem auto;
+    background-color: #93CFC1; /* Matching cart container */
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #D1E8E2;
+}
+
+.cart-container h1 {
+    color: #2E2E2E;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.cart-container h2 {
+    color: #2E2E2E;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #D1E8E2;
+}
+
+.cart-container p {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Table styles */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #E3F2FD; /* Matching table background */
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #D1E8E2;
+}
+
+.cart-table th {
+    background-color: #84CCEB; /* Matching table header */
+    color: #333;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+.cart-table td {
+    color: #333;
+}
+
+.cart-table tr:hover {
+    background-color: rgba(209, 232, 226, 0.5); /* Matching hover effect */
+    transition: background-color 0.2s ease;
+}
+
+/* Cart summary */
+.cart-summary {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: right;
+    color: #2E2E2E;
+    padding: 1rem;
+    background-color: #E3F2FD; /* Matching summary background */
+    border-radius: 6px;
+    margin-top: 1.5rem;
+}
+
+/* Redirect message and link */
+body > p {
+    text-align: center;
+    color: #555;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+#countdown {
+    font-weight: 600;
+    color: #5680E9; /* Matching primary accent */
+}
+
+body > p a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #5680E9; /* Matching button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+body > p a:hover {
+    background-color: #4a73d4; /* Matching hover shade */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #5680E9; /* Matching footer color */
+    color: #FFF;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cart-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .cart-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .cart-container h2 {
+        font-size: 1.3rem;
+    }
+
+    .cart-table th,
+    .cart-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .cart-summary {
+        font-size: 1.1rem;
+    }
+
+    body > p a {
+        width: 80%;
+        margin: 0.75rem auto;
+        display: block;
+    }
+}

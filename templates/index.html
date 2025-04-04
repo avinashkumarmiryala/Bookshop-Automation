@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Haven</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@600&family=Playfair+Display:wght@700&family=Poppins:wght@600&family=Cinzel:wght@600&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Christalle&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/recoleta" rel="stylesheet">
+
+    <script src="{{ url_for('static', filename='searchbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='cart.js') }}"></script>
+    <script src="{{ url_for('static', filename='addbookrequest.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='book.js') }}"></script>
+    
+</head>
+<!-- Sticky Cart Sidebar -->
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button id="close-cart">✖</button>
+    </div>
+    <div id="cart-content"></div>
+</div>
+
+
+
+<body>
+    <header>
+        <div class="search-container">
+            <!--<button onclick="displayBooksGrid()">View All Books</button>-->
+            <input type="text" id="SearchByAuthor" placeholder="Search by Author" class="search-bar"> 
+            <button id="SearchByAuthorBtn" type="submit"> 🔍</button>
+            
+            <input type="text" id="SearchByTitle" placeholder="Search by Title" class="search-bar"> 
+            <button id="SearchByTitleBtn" type="submit">🔍</button>
+            
+            <i class="fas fa-shopping-cart cart" id="cart-icon"></i>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </header>
+    <div id="GetBookResults"></div>
+    
+    <section id="SearchResults">
+        <h2>Search Results</h2>
+        <div id="ResultContainer" class="search-results-grid"></div> <!-- Updated ID to match script -->
+    </section>
+    
+    </div>
+    <section id="slideshow"></section>
+    <section class="slider-section">
+        <div class="slider">
+            <div class="slide">
+                <img src="https://is5-ssl.mzstatic.com/image/thumb/Publication211/v4/5f/30/7a/5f307a0d-4fd3-b774-d0fe-a9204a3f06a9/9780062368683.jpg/100000x100000-999.jpg" alt="To Kill a Mockingbird">
+                <div class="quote">
+                    <span class="highlight">“You never really understand a person…”</span>
+                    <br>
+                    <span class="author">– Harper Lee</span>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://is5-ssl.mzstatic.com/image/thumb/Publication221/v4/1c/f9/bf/1cf9bf30-9fd3-4835-777c-b9352fbcd356/9781998382491.jpg/100000x100000-999.jpg" alt="1984">
+                <div class="quote">
+                    <span class="highlight">“Big Brother is Watching You.”</span>
+                    <br>
+                    <span class="author">– George Orwell</span>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://is5-ssl.mzstatic.com/image/thumb/Publication/v4/cb/e9/13/cbe913ee-b696-f26f-1581-23231b1a4c7a/PridePrejudice-Cover.jpg/100000x100000-999.jpg" alt="Pride and Prejudice">
+                <div class="quote">
+                    <span class="highlight">“It is a truth universally acknowledged…”</span>
+                    <br>
+                    <span class="author">– Jane Austen</span>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Publication124/v4/b3/4c/64/b34c6480-aab2-ecc8-30f8-812e1ab002da/cover.png/600x600bb.jpg" alt="The Great Gatsby">
+                <div class="quote">
+                    <span class="highlight">“Gatsby believed in the green light…”</span>
+                    <br>
+                    <span class="author">– F. Scott Fitzgerald</span>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Publication122/v4/73/6f/ce/736fce80-e9bc-e529-b0ad-6a9491b8a4ce/9781781105849.jpg/600x600bb.jpg" alt="Harry Potter">
+                <div class="quote">
+                    <span class="highlight">“Yer a wizard, Harry!”</span>
+                    <br>
+                    <span class="author">– J.K. Rowling</span>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Publication125/v4/43/63/d5/4363d5a8-86a6-8fb6-9c88-2b29f1472a4f/9780316460002.jpg/600x600bb.jpg" alt="The Catcher in the Rye">
+                <div class="quote">
+                    <span class="highlight">“Salinger wrote this in just 10 weeks!”</span>
+                    <br>
+                    <span class="author">– Fun Fact</span>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <a href="#home">Home</a>
+                <a href="#about-us">About Us</a>
+            </div>
+            <div class="footer-right">
+                <div class="contact">
+                    <p>Email: <a href="mailto:harshavardhan17943@gmail.com">harshavardhan17943@gmail.com</a></p>
+                    <p>Phone: (+91)8885388312</p>
+                </div>
+                <div class="social-icons">
+                    <a href="https://facebook.com/bookhaven" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/bookhaven" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/bookhaven" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        slider.addEventListener('mouseover', () => slider.style.animationPlayState = 'paused');
+        slider.addEventListener('mouseout', () => slider.style.animationPlayState = 'running');
+    </script>
+</body>
+</html>
