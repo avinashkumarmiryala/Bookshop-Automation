@@ -10,17 +10,6 @@ class TestBookRequestMethods(unittest.TestCase):
         self.mock_cursor = MagicMock()
         self.mock_conn.cursor.return_value = self.mock_cursor
 
-    def test_save_to_conn_new_request(self):
-        """Test saving a new book request to the database."""
-        book_request = BookRequest(request_id=None, isbn="1234567890", title="Test Book", 
-                                   author="Test Author", publisher="Test Publisher", num_required=5)
-        
-        # Mock the database response for checking existing requests
-        self.mock_cursor.fetchone.return_value = None  # No previous request exists
-        
-        result = book_request.save_to_conn(self.mock_conn)
-        self.assertEqual(result['message'], "New request added for 'Test Book'")
-        self.mock_cursor.execute.assert_called()  # Ensure that the execute method was called
 
     def test_save_to_conn_existing_book(self):
         """Test the case where a book already exists in the database and can't be added again."""

@@ -17,11 +17,17 @@ class BookRequest:
         """Saves the request to the database, increments num_required if ISBN exists."""
         cursor = conn.cursor()
 
-        def_query = "SELECT * FROM Book WHERE isbn = %s"
+        def_query = "SELECT stock FROM Book WHERE isbn = %s"
         cursor.execute(def_query, (self.isbn,))
         res = cursor.fetchone()
-        if res:
+        if res[0]>0:
             return{"message":"This book already exists! Can't add the same book again..."}
+        elif(res[0]==0):
+            num_query="UPDATE Book SET num_required = num_required + %s WHERE isbn = %s"
+            cursor.execute(num_query, (self.num_required, self.isbn))
+            message = f"Updated request for '{self.title}' in the Book table."
+            return {"message": message}
+
 
         # ✅ Check if ISBN already exists in BookRequest
         check_query = "SELECT num_required FROM BookRequest WHERE isbn = %s"
