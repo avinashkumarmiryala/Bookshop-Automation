@@ -1,0 +1,20 @@
+# Ignore Python virtual environment
+.venv/
+
+# Ignore node.js dependencies
+node_modules/
+
+# Ignore test coverage reports
+coverage/
+.coverage
+
+# Ignore your database folder
+mysql/
+
+# Optional: IDE/editor junk
+.vscode/
+*.pyc
+__pycache__/
+
+# Optional: Python test cache
+.pytest_cache/

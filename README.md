@@ -58,15 +58,16 @@ Book Haven is a software to automate various activities of a small book store.
 ## Project Structure
 book-haven/
 ├── app.py                # Main Flask application
-├── book.py               # Backend for book class and its functions
-├── bookrequest.py        # Backend for bookrequest table(only for the books we have never sold)
-├── customer.py           # Backend for customer class and its functions
-├── inventory.py          # Backend for inventory class and its functions
-├── salesdetailes.py      # Backend for sale functions
-├── transactiondetails.py # Backend for transactiondetails class and its functions
-├── vendorsupply.py       # Backend for vendor class and its functions
 ├── database.sql          # SQL File for database
-├── db_connection.py      
+├── backend/
+    ├── book.py               # Backend for book class and its functions
+    ├── bookrequest.py        # Backend for bookrequest table(only for the books we have never sold)
+    ├── customer.py           # Backend for customer class and its functions
+    ├── inventory.py          # Backend for inventory class and its functions
+    ├── salesdetailes.py      # Backend for sale functions
+    ├── transactiondetails.py # Backend for transactiondetails class and its functions
+    ├── vendorsupply.py       # Backend for vendor class and its functions
+    ├── db_connection.py  
 ├── static/
 │   ├── styles.css      # CSS styles for most of html files
 │   └── cartstyles.css  # CSS styles for cart 
@@ -96,4 +97,10 @@ book-haven/
 ├── test_salesdetailes.py      # test file for salesdetails.py
 ├── test_transactiondetails.py # test file for transactiondetails.py
 ├── test_vendorsupply.py       # test file for vendorsupply.py
+├── book.test.js
+├── bookrequest.test.js
+├── generatebill.test.js
+├── storeops.test.js
+├── vendor.test.js
+├── viewstat.test.js
 └── README.md           # This documentation file

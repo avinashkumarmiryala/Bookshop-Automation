@@ -39,11 +39,11 @@ class TestInventory(unittest.TestCase):
     
     def test_display_book_stock_with_data(self):
         # Mocking data retrieval
-        self.cursor.fetchall.return_value = [("2025-03-30", 10, "1234567890", "Test Book", "Test Author", "Test Publisher", 500, 1)]
+        self.cursor.fetchall.return_value = [("2025-03-30", 10, "1234567890", "Test Book", "Test Author", "Test Publisher", 500, "test_image.jpg",1)]
         
         result = Inventory.display_book_stock(self.conn)
         
-        self.assertEqual(result, {"books": [{"isbn": "1234567890", "title": "Test Book", "quantity_arrived": 10, "arrival_date": "2025-03-30", "flag": 1}]})
+        self.assertEqual(result, {"books": [{"isbn": "1234567890", "title": "Test Book", "quantity_arrived": 10, "arrival_date": "2025-03-30", "image_url":"test_image.jpg","flag": 1}]})
     
     def test_display_book_stock_empty(self):
         self.cursor.fetchall.return_value = []

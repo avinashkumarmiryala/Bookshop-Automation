@@ -121,36 +121,50 @@ async function viewStock() {
 
         const BookStockResult = document.getElementById('BookStockResult');
         if (data.books && data.books.length > 0) {
-            BookStockResult.innerHTML = data.books.map(item => {
-                const formattedDate = item.arrival_date ? new Date(item.arrival_date).toDateString() : "N/A";
-                console.log(formattedDate);
-
-                // Check if stock is yet to be updated
-                const updateMessage = item.flag === 1 ? `<p style="color: red; font-weight: bold;">This stock is yet to be updated</p>` : '';
-                const imageHtml = item.image_url ? 
-                    `<div class="book-image"><img src="${item.image_url}" alt="${item.title}" style="max-width: 100px; max-height: 150px;" /></div>` : 
-                    `<div class="book-image"><p>No image available</p></div>`;
-                return `
-                <hr>
-                <div class="request-item" style="display: flex; gap: 15px;>
-                    ${imageHtml}
-                    <p>ISBN: ${item.isbn}</p>
-                    <p>Title: ${item.title}</p>
-                    <p>Quantity_Arrived: ${item.quantity_arrived}</p>
-                    <p>Arrival_Date: ${formattedDate}</p>
-                    ${updateMessage}
-                     
-                </div>
-                </hr>
-            `;
-            }).join('');
+            BookStockResult.innerHTML = `
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Quantity Arrived</th>
+                        <th>Arrival Date</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    ${data.books.map(item => {
+                        const formattedDate = item.arrival_date ? new Date(item.arrival_date).toDateString() : "N/A";
+                        console.log(formattedDate);
+                        
+                        // Check if stock is yet to be updated
+                        const updateMessage = item.flag === 1 ? 
+                            `<span style="color: red; font-weight: bold;">Yet to be updated</span>` : 
+                            `<span style="color: green;">Updated</span>`;
+                        
+                        const imageHtml = item.image_url ? 
+                            `<img src="${item.image_url}" alt="${item.title}" style="max-width: 60px; max-height: 90px;" />` : 
+                            `<span>No image</span>`;
+                            
+                        return `
+                        <tr>
+                            <td>${imageHtml}</td>
+                            <td>${item.isbn}</td>
+                            <td>${item.title}</td>
+                            <td>${item.quantity_arrived}</td>
+                            <td>${formattedDate}</td>
+                            
+                        </tr>
+                        `;
+                    }).join('')}
+                </tbody>
+            </table>`;
         } else {
             BookStockResult.innerHTML = `
-            <hr>
-            <div class="request-item">
+            <div class="no-data-message">
                 <p>${data.message}</p>
-            </div>
-            </hr>`;
+            </div>`;
         }
     } 
     catch (error) {
@@ -158,17 +172,6 @@ async function viewStock() {
         alert("Failed to display book stock.");
     }
 }
-
-
-document.addEventListener("DOMContentLoaded", () => document.getElementById('deleteStoreForm').addEventListener('submit', async function(event) {
-    event.preventDefault();  // ✅ Prevent default form submission
-
-    await deleteFromStore();  // Call the function
-
-    document.getElementById('deleteFromStoreBtn').addEventListener('click', deleteFromStore)
-
-    
-}))
 
 
 async function deleteFromStore(){
