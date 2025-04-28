@@ -6,7 +6,7 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
-
+  
 header {
     padding: 20px;
     text-align: center;
@@ -559,3 +559,42 @@ footer {
     color: #333;
     font-family: 'Playfair Display', serif;
 }
+
+/* Styles for the footer message */
+.scrolling-message-container {
+    width: 100%;
+    overflow: hidden;
+    background-color:rgb(54, 96, 224);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    display: flex; /* Hidden by default */
+    align-items: center;
+  }
+  
+  .scrolling-message {
+    white-space: nowrap;
+    display: inline-block;
+    animation: scroll-left 45s linear infinite;
+    font-size: 20px;
+    padding-left: 100%;
+    font-family: Lucida Calligraphy;
+    font-weight: bold;
+    color: #2c3e50; /* Dark color for text */
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Smooth scrolling of the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+  

@@ -180,3 +180,6 @@ loginForm.addEventListener("submit", async (e) => {
         return emailRegex.test(email);
     }
 });
+
+
+  
