@@ -44,7 +44,7 @@ async function addStock(){
         const price = document.getElementById('price')?.value.trim() || "";
         const image_url = document.getElementById('image_url')?.value.trim() || "";
 
-        if (!arrival_date || !quantity_arrived || !isbn || !stockpublisher || !title || !author || !price||!image_url) {
+        if (!arrival_date || !quantity_arrived || !isbn || !stockpublisher || !title || !author || !price|| !image_url) {
             alert("⚠️ Please fill in all fields before submitting.");
             return; // ✅ Stop function if any field is empty
         }
@@ -70,7 +70,8 @@ async function addStock(){
             return;
         }
 
-        const userConfirmed = confirm("Are you sure you want to add this stock?");
+        const userConfirmed = confirm(`Are you sure you want to add this stock? \n Arrival Date:${arrival_date} \n Quantity Arrived:${quantity_arrived}
+            ISBN:${isbn} \n Title:${title} \n Author:${author} \n Publisher:${stockpublisher} \n Price:${price}`);
         if (!userConfirmed) {
             alert("Action cancelled.");
             return;  // ⛔ Stop execution if user clicks "Cancel"

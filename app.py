@@ -190,21 +190,9 @@ def search_book_by_author(author):
     else:
         return jsonify({"message": "No books found."})
 
-
-    conn.close()
-    
-    if result:
-        return jsonify(result)  
-    else:
-        return jsonify({"message": "No books found."})  
-  
-
-
 #H  A   R   S   H   A
 
 #H  A   R   S   H   A
-
-
 
 @app.route('/update_cart_item', methods=['POST'])
 def update_cart_item():
@@ -228,6 +216,7 @@ def update_cart_item():
     print(f"Update cart response: {response}")
     conn.close()
     return jsonify(response)
+
 @app.route('/remove_from_cart/<isbn>', methods=['DELETE'])
 def remove_from_cart(isbn):
     conn = create_connection()
@@ -422,20 +411,12 @@ def delete_from_Book(isbn):
     return jsonify(response)
 #H  A   R   S   H   A
 
-
-
-
-
-
 @app.after_request
 def add_header(response):
     response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
     return response
-
-
-
 #
 
 
@@ -610,18 +591,13 @@ def process_payment():
     bill_data = result
     bill_data['payment_method'] = payment_method
     return render_template('order_confirmed.html', bill=bill_data)
+
 @app.route('/order_confirmed')
 def order_confirmed():
     if 'user' not in session:
         return redirect(url_for('login'))
     return render_template('order_confirmed.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-
-
-
-
 
