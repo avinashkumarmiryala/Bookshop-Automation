@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p><strong>Rack:</strong> ${book.rack}</p>
                                 <div class="cart-controls">
                                     <button class="cart-btn cart-decrease">-</button>
-                                    <input type="number" class="cart-quantity" value="1" min="1" max="${book.stock}">
+                                    <input type="number" class="cart-quantity" value="1" min="1" max="${book.stock > 0 ? book.stock : 100}">
                                     <button class="cart-btn cart-increase">+</button>
                                     <button class="add-to-cart-btn" data-isbn="${book.isbn}">Add to Cart</button>
                                 </div>
