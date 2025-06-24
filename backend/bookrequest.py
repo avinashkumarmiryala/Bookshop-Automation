@@ -20,9 +20,9 @@ class BookRequest:
         def_query = "SELECT stock FROM Book WHERE isbn = %s"
         cursor.execute(def_query, (self.isbn,))
         res = cursor.fetchone()
-        if res[0]>0:
+        if res and res[0]>0:
             return{"message":"This book already exists! Can't add the same book again..."}
-        elif(res[0]==0):
+        elif(res and res[0]==0):
             num_query="UPDATE Book SET num_required = num_required + %s WHERE isbn = %s"
             cursor.execute(num_query, (self.num_required, self.isbn))
             message = f"Updated request for '{self.title}' in the Book table."
