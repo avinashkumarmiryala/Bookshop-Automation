@@ -6,9 +6,19 @@ def create_database():
     user="root",
     password="Avinash@6174")
 
+    
     mycursor = mydb.cursor()
-    mycursor.execute("CREATE DATABASE BookShop")
+    mycursor.execute("SHOW DATABASES")
+    databases = [db[0] for db in mycursor.fetchall()]
+
+    if "bookshop" not in [db.lower() for db in databases]:
+        mycursor.execute("CREATE DATABASE BookShop")
+        print("✅ Database 'BookShop' created.")
+    else:
+        print("ℹ️ Database 'BookShop' already exists.")
+
     mycursor.close()
+    mydb.close()
 
 def create_connection():
     connection_temp = None
@@ -27,4 +37,4 @@ def create_connection():
     
     return connection_temp
 
-#create_database()
+create_database()
