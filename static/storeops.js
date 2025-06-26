@@ -70,8 +70,16 @@ async function addStock(){
             return;
         }
 
-        const userConfirmed = confirm(`Are you sure you want to add this stock? \n Arrival Date:${arrival_date} \n Quantity Arrived:${quantity_arrived}
-            ISBN:${isbn} \n Title:${title} \n Author:${author} \n Publisher:${stockpublisher} \n Price:${price}`);
+        const userConfirmed = confirm(`Are you sure you want to add this stock?
+            Arrival Date:${arrival_date}
+            Quantity Arrived:${quantity_arrived}
+            ISBN:${isbn}
+            Title:${title}
+            Author:${author}
+            Publisher:${stockpublisher}
+            Price:${price}`
+        );
+        
         if (!userConfirmed) {
             alert("Action cancelled.");
             return;  // ⛔ Stop execution if user clicks "Cancel"
