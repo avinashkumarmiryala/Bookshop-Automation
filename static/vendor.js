@@ -10,18 +10,27 @@ async function viewVendors() {
 
         const GetVendorResults = document.getElementById('GetVendorResults');
         if (Array.isArray(data.message)) {
-            GetVendorResults.innerHTML = data.message.map(item => `
-                <hr>
-                <div class="request-item">
-                    <p>Vendor ID: ${item.vendor_id}</p>
-                    <p>Vendor Name: ${item.vendor_name}</p>
-                    <p>Vendor Address: ${item.vendor_address}</p>
-                    <p>Contact INFO: ${item.contact_info}</p>
-                    <p>Publisher: ${item.publisher}</p>
+            GetVendorResults.innerHTML = `
+                <div class="vendor-result-wrapper">
+                    ${data.message.map(item => `
+                        <div class="vendor">
+                            <div class="spring-dots">
+                                ${Array(5).fill().map(() => `<span class="dot"></span>`).join('')}
+                            </div>
+                            <div class="vendor-result">
+                                <p><strong>Vendor ID:</strong> ${item.vendor_id}</p>
+                                <p><strong>Vendor Name:</strong> ${item.vendor_name}</p>
+                                <p><strong>Vendor Address:</strong> ${item.vendor_address}</p>
+                                <p><strong>Contact INFO:</strong> ${item.contact_info}</p>
+                                <p><strong>Publisher:</strong> ${item.publisher}</p>
+                            </div>
+                        </div>
+                        <hr>
+                    `).join('')}
                 </div>
-                <hr>                
-            `).join('');
-        } else {
+            `;
+        }
+        else {
             GetVendorResults.innerHTML = `<p>${data.message}</p>`;
         }
     }

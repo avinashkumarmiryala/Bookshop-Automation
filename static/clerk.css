@@ -124,8 +124,6 @@ input[type="date"] {
     padding: 0 20px;
 }
 
-
-
 .book-table {
     width: 100%;
     border-collapse: collapse;
@@ -189,4 +187,75 @@ input[type="date"] {
 }
 
 
+.vendor {
+    display: flex;
+    align-items: flex-start;
+    align-items: stretch; /* Makes both columns match height */
+    margin-bottom: 20px;
+    align-items: center; /* ✅ Vertically center spring-dots and vendor-result */
+}
 
+.vendor-result{
+    display: flex;
+    flex-direction: column;  /* ✅ Stack the 2 sentences vertically */
+    justify-content: center; /* ✅ Vertically center the text inside */
+    height: 100%; /* ✅ Force it to stretch and allow vertical centering */
+}
+
+/* Bold and colored labels */
+.vendor-result p strong {
+    color: #333;
+}
+
+/* Adding some spacing and font styling */
+.vendor-result p {
+    margin: 4px 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.vendor-result-wrapper hr {
+    border: none; /* Remove default border */
+    height: 2px; /* Thickness of the line */
+    background-color: pink; /* Pink color */
+    margin: 10px 0; /* Space above and below the line */
+}
+
+
+.vendor-result-wrapper {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 12px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.spring-dots {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 8px;
+    background-color: transparent;
+    position: relative;
+}
+
+.spring-dots::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e8e4d9; /* Optional dotted line if needed */
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background-color: #e8e4d9; /* Customize hole color */
+    border-radius: 50%;
+    margin: 6px 0;
+}

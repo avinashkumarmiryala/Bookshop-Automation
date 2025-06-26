@@ -13,41 +13,54 @@ async function makeRequest() {
 
         if (data.customer_name_requests || data.book_requests) {
             let output = '<hr>'
-            output +=  '<div class="request-item">'; // Start of the container;
+            output +=  '<div class="vendor-result-wrapper">'; // Start of the container;
 
             // Handle customer_name_requests
             if (data.customer_name_requests) {
                 output += data.customer_name_requests.map(item => `
-                    <p>Publisher: ${item.publisher}</p>
-                    ${item.vendor_details ? `
-                        <p>Vendor Name: ${item.vendor_details.vendor_name}</p>
-                        <p>Vendor ID: ${item.vendor_details.vendor_id}</p>
-                        <p>Contact INFO: ${item.vendor_details.contact_info}</p>
-                        <p>Vendor Address: ${item.vendor_details.vendor_address}</p>
-                        <br>
-                    ` : `<p>${item.message}</p>
-                        <br>`}
+                    <div class="vendor">
+                        <div class="spring-dots">
+                            ${Array(3).fill().map(() => `<span class="dot"></span>`).join('')}
+                        </div>
+                        <div class="vendor-result">
+                            <p>Publisher: ${item.publisher}</p>
+                            ${item.vendor_details ? `
+                                <p>Vendor Name: ${item.vendor_details.vendor_name}</p>
+                                <p>Vendor ID: ${item.vendor_details.vendor_id}</p>
+                                <p>Contact INFO: ${item.vendor_details.contact_info}</p>
+                                <p>Vendor Address: ${item.vendor_details.vendor_address}</p>
+                            ` : `<p>${item.message}</p>
+                            `}
+                        </div>
+                    </div>
+                    <hr>
                 `).join('');
             }
 
             // Handle book_requests
             if (data.book_requests) {
-                output += data.book_requests.map(item => `
-                    <p>Publisher: ${item.publisher}</p>
-                    ${item.vendor_details ? `
-                        <p>Vendor Name: ${item.vendor_details.vendor_name}</p>
-                        <p>Vendor ID: ${item.vendor_details.vendor_id}</p>
-                        <p>Contact INFO: ${item.vendor_details.contact_info}</p>
-                        <p>Vendor Address: ${item.vendor_details.vendor_address}</p>
-                        <br>
-                    ` : `<p>${item.message}</p>
-                        <br>`}
-                `).join('');
+                    output += data.book_requests.map(item => `
+                        <div class="vendor">
+                            <div class="spring-dots">
+                                ${Array(3).fill().map(() => `<span class="dot"></span>`).join('')}
+                            </div>
+                            <div class="vendor-result">
+                                <p>Publisher: ${item.publisher}</p>
+                                ${item.vendor_details ? `
+                                    <p>Vendor Name: ${item.vendor_details.vendor_name}</p>
+                                    <p>Vendor ID: ${item.vendor_details.vendor_id}</p>
+                                    <p>Contact INFO: ${item.vendor_details.contact_info}</p>
+                                    <p>Vendor Address: ${item.vendor_details.vendor_address}</p>
+                                    
+                                ` : `<p>${item.message}</p>
+                                    `}
+                            </div>
+                        </div>
+                        <hr>
+                    `).join('');
             }
             
             output += '</div>'; // End of the container
-
-            output+='<hr>';
 
             RequestVendorContainer.innerHTML = output;
         } else {
@@ -72,17 +85,24 @@ async function viewRequests(){
 
         const BookRequestResult = document.getElementById('BookRequestResult');
         if (Array.isArray(data.requests)) {
-            BookRequestResult.innerHTML = data.requests.map(item => `
-                <hr>
-                <div class="request-item">
-                    <p>Request_id: ${item.request_id}</p>
-                    <p>ISBN: ${item.isbn}</p>
-                    <p>Title: ${item.title}</p>
-                    <p>Num_required: ${item.num_required}</p>
-                    <br>
-                </div>
-                <hr>
-            `).join('');
+            BookRequestResult.innerHTML = `
+            <div class="vendor-result-wrapper">
+                ${data.requests.map(item => `
+                    <div class="vendor">
+                        <div class="spring-dots">
+                            ${Array(3).fill().map(() => `<span class="dot"></span>`).join('')}
+                        </div>
+                        <div class="vendor-result">
+                            <p>Request_id: ${item.request_id}</p>
+                            <p>ISBN: ${item.isbn}</p>
+                            <p>Title: ${item.title}</p>
+                            <p>Num_required: ${item.num_required}</p>
+                        </div>
+                    </div>
+                    <hr>
+                `).join('')}
+            </div>
+            `
         } else {
             BookRequestResult.innerHTML = `<p>${data.message}</p>`;
         }
