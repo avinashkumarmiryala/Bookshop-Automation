@@ -90,17 +90,4 @@ book-haven/
 │   └── login.html       # HTML page for login
 │   └── proceed_to_pay.html #HTML page for payment gateway
 │   └── order_confirmed.html #HTML page to show if the payment was successful
-├── test_book.py               # test file for book.py
-├── test_bookrequest.py        # test file for bookrequest.py
-├── test_customer.py           # test file for customer.py
-├── test_inventory.py          # test file for inventory.py
-├── test_salesdetailes.py      # test file for salesdetails.py
-├── test_transactiondetails.py # test file for transactiondetails.py
-├── test_vendorsupply.py       # test file for vendorsupply.py
-├── book.test.js
-├── bookrequest.test.js
-├── generatebill.test.js
-├── storeops.test.js
-├── vendor.test.js
-├── viewstat.test.js
 └── README.md           # This documentation file
