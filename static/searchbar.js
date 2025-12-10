@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Prepare request form HTML - make sure IDs match those expected in addbookrequest.js
-            const requestFormHTML = `
+            /*const requestFormHTML = `
                 <div class="request-book-section">
                     <h3>Didn't find the book you're searching for? Chill!</h3>
                     <p>Just let us know the details, and we'll get it for you!</p>
@@ -89,6 +89,96 @@ document.addEventListener("DOMContentLoaded", () => {
                         <input type="text" id="Book_Publisher" placeholder="Publisher (if known)" class="request-input">
                         <input type="number" id="num_required" placeholder="Quantity Needed" min="1" value="1" class="request-input">
                         <button type="submit" id="addBookRequestBtn" class="request-btn" onclick="AddBookRequest()">Request This Book</button>
+                    </form>
+                </div>
+            `;*/
+            const requestFormHTML = `
+                <style>
+                    .request-book-section {
+                        background: #ffffff;
+                        padding: 24px;
+                        border-radius: 16px;
+                        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+                        max-width: 450px;
+                        margin: 20px auto;
+                    }
+
+                    .request-book-section h3 {
+                        margin-bottom: 6px;
+                        font-size: 1.3rem;
+                        font-weight: 600;
+                        color: #222;
+                    }
+
+                    .request-book-section p {
+                        margin-bottom: 18px;
+                        color: #555;
+                        font-size: 0.95rem;
+                    }
+
+                    .book-request-form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 14px;
+                    }
+
+                    .request-input {
+                        width: 100%;
+                        padding: 12px 14px;
+                        border: 1.5px solid #ddd;
+                        border-radius: 10px;
+                        font-size: 0.95rem;
+                        transition: 0.2s ease;
+                    }
+
+                    .request-input:focus {
+                        border-color: #3a7afe;
+                        box-shadow: 0 0 6px rgba(58, 122, 254, 0.25);
+                        outline: none;
+                    }
+
+                    .request-btn {
+                        background: #3a7afe;
+                        color: #fff;
+                        border: none;
+                        padding: 12px 16px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        font-size: 1rem;
+                        transition: 0.25s ease;
+                    }
+
+                    .request-btn:hover {
+                        background: #2f68e9;
+                        transform: translateY(-1px);
+                    }
+
+                    .request-btn:active {
+                        transform: translateY(1px);
+                    }
+                </style>
+
+                <div class="request-book-section">
+                    <h3>Didn't find the book you're searching for? Chill!</h3>
+                    <p>Just let us know the details, and we'll get it for you!</p>
+
+                    <form id="bookRequestForm" class="book-request-form">
+                        <input type="text" id="isbn" placeholder="ISBN (if known)" class="request-input">
+
+                        <input type="text" id="booktitle" placeholder="Book Title" class="request-input"
+                            value="${type === 'title' ? query : ''}">
+
+                        <input type="text" id="bookauthor" placeholder="Author" class="request-input"
+                            value="${type === 'author' ? query : ''}">
+
+                        <input type="text" id="Book_Publisher" placeholder="Publisher (if known)" class="request-input">
+
+                        <input type="number" id="num_required" placeholder="Quantity Needed" min="1" value="1"
+                            class="request-input">
+
+                        <button type="submit" id="addBookRequestBtn" class="request-btn" onclick="AddBookRequest()">
+                            Request This Book
+                        </button>
                     </form>
                 </div>
             `;
