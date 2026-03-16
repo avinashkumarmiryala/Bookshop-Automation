@@ -56,38 +56,39 @@ Book Haven is a software to automate various activities of a small book store.
 - See Bookrequests for the ones we didnt sell yet
 - See Transaction Statistics of a particular book between 2 dates
 ## Project Structure
+
 book-haven/
-├── app.py                # Main Flask application
-├── database.sql          # SQL File for database
+├── app.py                     # Main Flask application
+├── database.sql               # SQL file for database
 ├── backend/
-    ├── book.py               # Backend for book class and its functions
-    ├── bookrequest.py        # Backend for bookrequest table(only for the books we have never sold)
-    ├── customer.py           # Backend for customer class and its functions
-    ├── inventory.py          # Backend for inventory class and its functions
-    ├── salesdetailes.py      # Backend for sale functions
-    ├── transactiondetails.py # Backend for transactiondetails class and its functions
-    ├── vendorsupply.py       # Backend for vendor class and its functions
-    ├── db_connection.py  
+│   ├── book.py                # Backend for book class and its functions
+│   ├── bookrequest.py         # Backend for bookrequest table
+│   ├── customer.py            # Backend for customer class
+│   ├── inventory.py           # Backend for inventory class
+│   ├── salesdetails.py        # Backend for sale functions
+│   ├── transactiondetails.py  # Backend for transactiondetails class
+│   ├── vendorsupply.py        # Backend for vendor class
+│   └── db_connection.py
 ├── static/
-│   ├── styles.css      # CSS styles for most of html files
-│   └── cartstyles.css  # CSS styles for cart 
-│   └── clerk.css       # CSS styles for clerk page
-│   └── loginstyles.css # CSS styles for login page
-│   ├── script.js       # JavaScript for login
-│   ├── book.js         # Book-related for view books and update book, delete book
-│   ├── cart.js         # Shopping cart functionality
-│   └── searchbar.js    # Search functionality
-│   └── bookrequest.js  # For the request of books we never sold
-│   └── generate_bill.js #For bill generation of items in cart and also lead to payment gateway
-│   └── statistics.js    # For statistics of a book with sales between particular dates
-│   └── storeops.js     #For store operations
-│   └── vendor.js        #For vendor operations
+│   ├── styles.css             # CSS for most HTML files
+│   ├── cartstyles.css         # CSS for cart
+│   ├── clerk.css              # CSS for clerk page
+│   ├── loginstyles.css        # CSS for login page
+│   ├── script.js              # JavaScript for login
+│   ├── book.js                # Book operations
+│   ├── cart.js                # Shopping cart functionality
+│   ├── searchbar.js           # Search functionality
+│   ├── bookrequest.js         # Request books never sold
+│   ├── generate_bill.js       # Bill generation and payment gateway
+│   ├── statistics.js          # Sales statistics between dates
+│   ├── storeops.js            # Store operations
+│   └── vendor.js              # Vendor operations
 ├── templates/
-│   └── index.html      # Main HTML page-Home page
-│   └── clerk.html      # HTML page for clerk
-│   └── cart.html       # HTML extension for cart
-│   └── generate_bill.html #HTML page to show the generated bill
-│   └── login.html       # HTML page for login
-│   └── proceed_to_pay.html #HTML page for payment gateway
-│   └── order_confirmed.html #HTML page to show if the payment was successful
-└── README.md           # This documentation file
+│   ├── index.html             # Home page
+│   ├── clerk.html             # Clerk page
+│   ├── cart.html              # Cart page
+│   ├── generate_bill.html     # Generated bill page
+│   ├── login.html             # Login page
+│   ├── proceed_to_pay.html    # Payment gateway page
+│   └── order_confirmed.html   # Payment success page
+└── README.md                  # Documentation file
