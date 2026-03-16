@@ -4,7 +4,7 @@ def create_database():
     mydb = connector.connect(
     host="127.0.0.1",
     user="root",
-    password="Avinash@6174")
+    password="**pwd")
 
     
     mycursor = mydb.cursor()
@@ -26,7 +26,7 @@ def create_connection():
         connection_temp = connector.connect(
             host="127.0.0.1",
             user="root",
-            password="Avinash@6174",
+            password="**pwd",
             database="BookShop"
         )        
         if connection_temp.is_connected():
